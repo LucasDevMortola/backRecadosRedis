@@ -18,7 +18,7 @@ module.exports  = {
        rootDir +'/core/data/database/entities/**/*'
     ],
     migrations : [
-        rootDir +'/core/data/database/migrations/**/*'
+        rootDir+'/core/data/database/migrations/**/*'
     ],
     cli: {
         entitiesDir: 'src/core/data/database/entities',
