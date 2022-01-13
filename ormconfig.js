@@ -1,8 +1,7 @@
 //Configuração do banco de dados
 require("dotenv").config();
 
-const rootDir =
-  process.env.NODE_ENV?.toLowerCase() === "production" ? "dist" : "src";
+const rootDir = process.env.NODE_ENV?.toLowerCase() === "production" ? "dist" : "src";
 console.log(rootDir);
 
 module.exports  = {
@@ -16,10 +15,10 @@ module.exports  = {
     synchronize: false,
     logging: false,
     entities: [
-        'src/core/data/database/entities/**/*'
+       rootDir +'/core/data/database/entities/**/*'
     ],
     migrations : [
-        'src/core/data/database/migrations/**/*'
+        rootDir +'/core/data/database/migrations/**/*'
     ],
     cli: {
         entitiesDir: 'src/core/data/database/entities',
