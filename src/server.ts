@@ -25,4 +25,4 @@ app.use(recadosRoutes);
 
 new Database()
 	.openConnection()
-	.then(() => app.listen(8080, () => console.log("Servidor Iniciado")));
+	.then(() => app.listen(PORT ?? 8000, () => console.log("Servidor Iniciado")));
