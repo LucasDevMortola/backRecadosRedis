@@ -1,4 +1,9 @@
 //Configuração do banco de dados
+require("dotenv").config();
+
+const rootDir =
+  process.env.NODE_ENV?.toLowerCase() === "production" ? "dist" : "src";
+console.log(rootDir);
 
 module.exports  = {
     type: 'postgres',
