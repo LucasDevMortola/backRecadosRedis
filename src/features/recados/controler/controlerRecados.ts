@@ -29,13 +29,14 @@ export default class RecadosController {
 	}
 
 	public async update(req: Request, res: Response) {
-		const { uid } = req.params;
+		const { descricao } = req.params;
 
-		const { descricao,detalhe } = req.body;
-		const categoria = await recados.findOne(uid);
+		const desc = req.body.descricao;
+		const det = req.body.detalhe;
+		const recado = await recados.findOne(descricao);
 
-		if (descricao && detalhe) {
-			const categoria = await new recados(descricao,detalhe).save();
+		if (desc && det) {
+			const recado = await new recados(desc,det).save();
 
 			return res.status(200).send("recados atualizados");
 		} else {
