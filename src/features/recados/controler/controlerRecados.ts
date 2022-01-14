@@ -44,9 +44,9 @@ export default class RecadosController {
 	}
 
 	public async destroy(req: Request, res: Response) {
-		const { uid } = req.params;
+		const { descricao } = req.params;
 
-		const recado = await recados.findOne(uid);
+		const recado = await recados.findOne(descricao);
 
 		if(recado) {
 			const result = await recados.remove(recado);
