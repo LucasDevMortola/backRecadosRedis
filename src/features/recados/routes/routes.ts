@@ -12,8 +12,8 @@ export default class Routes{
         routes.get('/recados', controller.index);
         routes.get('/recados/:uid', controller.view);
         routes.post('/recados/inserir', controller.store);
-        routes.put('/recados/alterar//:uid', controller.update);
-        routes.delete('/recados/apagar//:uid', controller.destroy);
+        routes.put('/recados/alterar/:uid', controller.update);
+        routes.delete('/recados/apagar/:uid', controller.destroy);
         
         return routes;
     }
