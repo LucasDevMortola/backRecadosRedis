@@ -14,9 +14,13 @@ export class recados extends BaseEntity {
     @Column()
     detalhe?: string
 
+    @Column()
+    num: number = 0
+
 
     constructor(descricao:string, detalhe:string){
         super()
+        this.num = this.num + 1
         this.uid = uuid()
         this.descricao = descricao;
         this.detalhe = detalhe

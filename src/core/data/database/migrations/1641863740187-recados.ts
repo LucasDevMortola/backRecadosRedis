@@ -23,6 +23,11 @@ export class recados1641863740187 implements MigrationInterface {
                 type: "varchar",
                 isNullable:false
             },
+            {
+                name:"num",
+                type: "numeric",
+                isNullable:false
+            },
 
         ],
        
