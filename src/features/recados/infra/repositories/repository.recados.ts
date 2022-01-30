@@ -31,12 +31,11 @@ export default class RecadosRepository{
       }
     async deleteRecadosByUid(uid:string): Promise<Recado | undefined>{
         
-        const recadosEntity = await RecadoEntity.findOne()
+        const recadosEntity = await RecadoEntity.findOne(uid)
 
         if(!recadosEntity) return undefined
 
-       await RecadoEntity.delete(recadosEntity)
-
+       await recadosEntity.remove()
        return this.mapperFromEntityToModel(recadosEntity)
 
     }    
