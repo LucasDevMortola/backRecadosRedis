@@ -1,5 +1,4 @@
 import { serverError } from './../../../../core/presentation/helpers/http-helper';
-import { RecadoEntity } from './../../../../core/infra/data/database/entities/recados';
 import { Request, Response } from "express";
 
 import controller from "../../../../core/presentation/contracts/controller";
