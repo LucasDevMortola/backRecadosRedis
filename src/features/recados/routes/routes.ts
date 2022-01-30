@@ -5,6 +5,7 @@ import CreateRecadosController from '../presentation/controler/createRecadosCont
 import GetAllRecados from '../presentation/controler/getAllRecados';
 import DeleteRecadosController from '../presentation/controler/deleteRecadosController';
 import UpdateRecadosController from '../presentation/controler/updateRecados.Controller';
+import GetRecadosByUid from '../presentation/controler/getRecadosByUid';
 
 export default class Routes{
 
@@ -17,7 +18,8 @@ export default class Routes{
         routes.get('/recados', new GetAllRecados().handle)
         routes.delete('/recados/:uid',new DeleteRecadosController().handle)
         routes.put('/recados/:uid', new UpdateRecadosController().handle)
-        
+        routes.get('/recados/:uid', new GetRecadosByUid().handle)
+
         return routes;
     }
 

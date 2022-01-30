@@ -57,6 +57,14 @@ export default class RecadosRepository{
         return this.mapperFromEntityToModel(recadoUpdated);
     }
     
+    async GetRecadoByUid(uid): Promise<Recado | undefined>{
+
+        const recadoEntity = await RecadoEntity.findOne(uid)
+
+        if (!recadoEntity) return undefined
+        
+        return recadoEntity;
+    }   
     private mapperFromEntityToModel(entity: RecadoEntity): Recado {
         return {
           uid: entity.uid,
