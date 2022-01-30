@@ -2,17 +2,19 @@
 import {JoinColumn,ManyToOne,BaseEntity,Column, Entity, PrimaryColumn} from "typeorm";
 import { v4 as uuid } from "uuid";
 
-@Entity()
-export class recados extends BaseEntity {
+@Entity({
+    name: "recados"
+})
+export class RecadoEntity extends BaseEntity {
 
     @PrimaryColumn()
-    uid?: string
+    uid: string
 
     @Column()
-    descricao?: string    
+    descricao: string    
 
     @Column()
-    detalhe?: string
+    detalhe: string
 
     @Column()
     num: number = 0

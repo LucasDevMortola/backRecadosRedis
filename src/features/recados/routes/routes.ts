@@ -1,6 +1,10 @@
 import { Router } from 'express';
 
-import RecadosController from '../controler/controlerRecados';
+import RecadosController from '../presentation/controler/getAllRecados';
+import CreateRecadosController from '../presentation/controler/createRecadosControler';
+import GetAllRecados from '../presentation/controler/getAllRecados';
+import DeleteRecadosController from '../presentation/controler/deleteRecadosController';
+import UpdateRecadosController from '../presentation/controler/updateRecados.Controller';
 
 export default class Routes{
 
@@ -9,11 +13,10 @@ export default class Routes{
 
         const controller = new RecadosController();
 
-        routes.get('/recados', controller.index);
-        routes.get('/recados/:uid', controller.view);
-        routes.post('/recados/inserir', controller.store);
-        routes.put('/recados/alterar/:uid', controller.update);
-        routes.delete('/recados/apagar/:uid', controller.destroy);
+        routes.post('/recados', new CreateRecadosController().handle)
+        routes.get('/recados', new GetAllRecados().handle)
+        routes.delete('/recados/:uid',new DeleteRecadosController().handle)
+        routes.put('/recados/:uid', new UpdateRecadosController().handle)
         
         return routes;
     }

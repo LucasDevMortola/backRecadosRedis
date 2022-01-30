@@ -1,7 +1,7 @@
 import Express,{Request,Response,NextFunction} from "express";
 import cors from "cors";
 import 'dotenv/config'
-import Database from "./core/data/connection/Database";
+import Database from "./core/infra/data/connection/Database";
 import Routes from './features/recados/routes/routes'
 const PORT = process.env.PORT
 

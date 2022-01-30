@@ -15,14 +15,14 @@ module.exports  = {
     synchronize: false,
     logging: false,
     entities: [
-       rootDir +'/core/data/database/entities/**/*'
+       rootDir +'/core/infra/data/database/entities/**/*'
     ],
     migrations : [
-        rootDir+'/core/data/database/migrations/**/*'
+        rootDir+'/core/infra/data/database/migrations/**/*'
     ],
     cli: {
-        entitiesDir: 'src/core/data/database/entities',
-        migrationsDir: 'src/core/data/database/migrations'
+        entitiesDir: 'src/core/infra/data/database/entities',
+        migrationsDir: 'src/core/data/infra/database/migrations'
     },
     extra: {
         ssl: {
