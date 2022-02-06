@@ -6,6 +6,7 @@ import { ParsedQs } from "qs";
 import controller from "../../../../core/presentation/contracts/controller";
 import RecadosRepository from '../../infra/repositories/repository.recados';
 import { ok } from '../../../../core/presentation/helpers/http-helper';
+import { CacheRepository } from '../../../../core/infra/repositories/cache.repository';
 
 
 export default class DeleteRecadosController implements controller {
@@ -15,8 +16,12 @@ export default class DeleteRecadosController implements controller {
             const { uid } = req.params
 
             const repository = new RecadosRepository()
+            const cache = new CacheRepository();
             
             const recadosEntity = await repository.deleteRecadosByUid(uid)
+            cache.delete(`recado:${recadosEntity?.uid}`)
+
+            cache.delete('recados')
 
             return ok(res,recadosEntity)
         } catch (error) {
