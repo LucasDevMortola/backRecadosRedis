@@ -3,6 +3,7 @@ import cors from "cors";
 import 'dotenv/config'
 import Database from "./core/infra/data/connection/Database";
 import Routes from './features/recados/routes/routes'
+import Redis from "./core/infra/data/connection/redis";
 const PORT = process.env.PORT
 
 const app = Express()
@@ -22,7 +23,10 @@ const recadosRoutes = new Routes().init();
 
 app.use(recadosRoutes);
 
-
-new Database()
-	.openConnection()
-	.then(() => app.listen(PORT ?? 8000, () => console.log("Servidor Iniciado")));
+Promise.all([new Database().openConnection(), new Redis().openConnection()])
+  .then(() => {
+    app.listen(PORT ?? 8000, () => console.log("Servidor Iniciado"))
+  })
+  .catch((err) => {
+    console.log(err);
+  });

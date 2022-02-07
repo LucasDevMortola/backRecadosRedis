@@ -11,22 +11,6 @@ import { CacheRepository } from '../../../../core/infra/repositories/cache.repos
 export default class GetAllRecados implements controller {
 	async handle(req: Request, res: Response) {
 
-	// 		cria uma instância do repositório do cache
-	// const cache = new CacheRepository();
-
-	// busca os registro no cache
-	// const projectsCache = await cache.get("projects");
-
-	// verifica se tem registro, caso verdadeiro, retorna do cache
-	// if (projectsCache) {
-	//   return ok(
-	// 	res,
-	// 	(projectsCache as Project[]).map((project) =>
-	// 	  Object.assign({}, project, { _cache: true })
-	// 	)
-	//   );
-	// }
-
 		try {
 			//
 			const cache = new CacheRepository();

@@ -13,14 +13,14 @@ export default class CreateRecadosController implements controller{
             const {descricao, detalhe} = req.body
 
             const repository = new RecadosRepository();
-            //const cache = new CacheRepository ()
+            const cache = new CacheRepository ()
 
             const recadosEntity = await repository.create(req.body)
-            // const result = await cache.set(`recado:${recadosEntity.uid}`, recadosEntity);
+            const result = await cache.set(`recado:${recadosEntity.uid}`, recadosEntity);
 
-            // if (!result) console.log("NÃO SALVOU NO CACHE");
+            if (!result) console.log("NÃO SALVOU NO CACHE");
 
-           // await cache.delete("recados");
+           await cache.delete("recados");
 
             return ok(res,recadosEntity)
 
